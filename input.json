@@ -1,0 +1,49 @@
+{
+    "url": "",
+    "name": "",
+    "week": {
+        "days": [
+            {
+                "date_day": "12.9.2022",
+                "start_time": "8:00",
+                "end_time": "16.30",
+                "break_duration": "0:30",
+                "mode": "normal",
+                "blocks": [
+                    {
+                        "project_name": "verikas",
+                        "activity": "methoden",
+                        "duration": "4:30"
+                    },
+                    {
+                        "project_name": "iMoD",
+                        "activity": "2022",
+                        "duration": "3:30"
+                    }
+                ]
+
+            },
+            {
+                "date_day": "13/9/2022",
+                "start_time": "8:00",
+                "end_time": "16.30",
+                "break_duration": "0.30",
+                "mode": "normal",
+                "blocks": [
+                    {
+                        "project_name": "aiara",
+                        "activity": "integration",
+                        "duration": "3:00"
+                    },
+                    {
+                        "project_name": "verikas",
+                        "activity": "methoden",
+                        "duration": "5.00"
+                    }
+
+                ]
+
+            }
+        ]
+    }
+}
