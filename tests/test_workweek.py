@@ -1,5 +1,5 @@
 import unittest
-from workweek import WorkWeek
+from bautomate.workweek import WorkWeek
 
 
 class TestWorkWeek(unittest.TestCase):

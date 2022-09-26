@@ -1,5 +1,5 @@
 import unittest
-from workblock import WorkBlock
+from bautomate.workblock import WorkBlock
 
 
 class TestWorkBlock(unittest.TestCase):

@@ -1,5 +1,5 @@
 from typing import List
-from workblock import WorkBlock
+from bautomate.workblock import WorkBlock
 
 
 class WorkDay():
@@ -118,7 +118,7 @@ class WorkDay():
     def mode(self) -> str:
         """
         The mode how to set the end time.
-        
+
             'normal':       End time is given in data.
             'fill':         The last work block is stretched to fit given start, end time, and break duration.
             'calculate':    End time is calculated from sum of hours, start time, and break duration.
@@ -155,6 +155,6 @@ class WorkDay():
 
         if not hasattr(self, "_blocks"):
             self._blocks = []
-        
+
         for e in k:
             self._blocks.append(WorkBlock(**e))

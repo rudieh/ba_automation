@@ -1,5 +1,5 @@
 from typing import List
-from workday import WorkDay
+from bautomate.workday import WorkDay
 
 class WorkWeek():
     """
@@ -37,6 +37,6 @@ class WorkWeek():
 
         if not hasattr(self, "_days"):
             self._days = []
-        
+
         for e in k:
             self._days.append(WorkDay(**e))

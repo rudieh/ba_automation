@@ -1,10 +1,10 @@
 import unittest
-from workday import WorkDay
+from bautomate.workday import WorkDay
 
 
 class TestWorkDay(unittest.TestCase):
 
-    def test_date_day_type(self):   
+    def test_date_day_type(self):
         wd = WorkDay()
         with self.assertRaises(TypeError):
             wd.date_day = 20220801
