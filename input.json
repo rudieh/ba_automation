@@ -12,7 +12,7 @@
                 "blocks": [
                     {
                         "project_name": "verikas",
-                        "activity": "methoden",
+                        "activity": "methods",
                         "duration": "4:30"
                     },
                     {
@@ -37,7 +37,7 @@
                     },
                     {
                         "project_name": "verikas",
-                        "activity": "methoden",
+                        "activity": "methods",
                         "duration": "5.00"
                     }
 

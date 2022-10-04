@@ -1,8 +1,9 @@
 from typing import List
+
 from bautomate.workblock import WorkBlock
 
 
-class WorkDay():
+class WorkDay:
     """
     Class representing one work day.
 
@@ -14,26 +15,27 @@ class WorkDay():
         mode:           Mode how to set end_time.
         blocks:         List of WorkBlocks.
     """
+
     def __init__(self, **kwargs):
-        self.date_day = kwargs.get("date_day", '1.1.1970')
-        self.start_time = kwargs.get("start_time", '08:00')
-        self.end_time = kwargs.get("end_time", '16:30')
-        self.break_duration = kwargs.get("break_duration", '00:30')
+        self.date_day = kwargs.get("date_day", "1.1.1970")
+        self.start_time = kwargs.get("start_time", "08:00")
+        self.end_time = kwargs.get("end_time", "16:30")
+        self.break_duration = kwargs.get("break_duration", "00:30")
         self.mode = kwargs.get("mode", "normal")
         self.blocks = kwargs.get("blocks", [])
 
     def __str__(self):
         s = ""
         for k in self.__dict__.keys():
-            s += '\n'
-            s += f'{k}: {getattr(self, k)}'
+            s += "\n"
+            s += f"{k}: {getattr(self, k)}"
         return s
 
     def __repr__(self):
         s = ""
         for k in self.__dict__.keys():
-            s += '\n'
-            s += f'{k}: {getattr(self, k)}'
+            s += "\n"
+            s += f"{k}: {getattr(self, k)}"
         return s
 
     @property
@@ -46,12 +48,12 @@ class WorkDay():
         if not isinstance(s, str):
             raise TypeError
 
-        if '.' in s:
-            a = s.split('.')
-        elif '/' in s:
-            a = s.split('/')
-        elif '-' in s:
-            a = s.split('-')
+        if "." in s:
+            a = s.split(".")
+        elif "/" in s:
+            a = s.split("/")
+        elif "-" in s:
+            a = s.split("-")
         else:
             raise ValueError
 
@@ -59,9 +61,10 @@ class WorkDay():
             a.reverse()
 
         # Make sure we get a full four digit year
-        assert len(a[2]) == 4, "Year should be full four digits long."
+        if len(a[2]) != 4:
+            raise ValueError("Year must be four digits long.")
 
-        self._date_day = '{:02}.{:02}.{}'.format(*map(int, a))
+        self._date_day = "{:02}.{:02}.{}".format(*map(int, a))
 
     @property
     def start_time(self) -> str:
@@ -73,12 +76,12 @@ class WorkDay():
         if not isinstance(s, str):
             raise TypeError
 
-        if '.' in s:
-            a = s.split('.')
-        elif ':' in s:
-            a = s.split(':')
+        if "." in s:
+            a = s.split(".")
+        elif ":" in s:
+            a = s.split(":")
 
-        self._start_time = '{:02}:{:02}'.format(*map(int, a))
+        self._start_time = "{:02}:{:02}".format(*map(int, a))
 
     @property
     def end_time(self) -> str:
@@ -90,12 +93,12 @@ class WorkDay():
         if not isinstance(s, str):
             raise TypeError
 
-        if '.' in s:
-            a = s.split('.')
-        elif ':' in s:
-            a = s.split(':')
+        if "." in s:
+            a = s.split(".")
+        elif ":" in s:
+            a = s.split(":")
 
-        self._end_time = '{:02}:{:02}'.format(*map(int, a))
+        self._end_time = "{:02}:{:02}".format(*map(int, a))
 
     @property
     def break_duration(self) -> str:
@@ -107,12 +110,12 @@ class WorkDay():
         if not isinstance(s, str):
             raise TypeError
 
-        if '.' in s:
-            a = s.split('.')
-        elif ':' in s:
-            a = s.split(':')
+        if "." in s:
+            a = s.split(".")
+        elif ":" in s:
+            a = s.split(":")
 
-        self._break_duration = '{:02}:{:02}'.format(*map(int, a))
+        self._break_duration = "{:02}:{:02}".format(*map(int, a))
 
     @property
     def mode(self) -> str:
@@ -120,8 +123,10 @@ class WorkDay():
         The mode how to set the end time.
 
             'normal':       End time is given in data.
-            'fill':         The last work block is stretched to fit given start, end time, and break duration.
-            'calculate':    End time is calculated from sum of hours, start time, and break duration.
+            'fill':         The last work block is stretched to fit
+                given start, end time, and break duration.
+            'calculate':    End time is calculated from sum of hours,
+                start time, and break duration.
         """
         return self._mode
 
@@ -130,16 +135,16 @@ class WorkDay():
         if not isinstance(s, str):
             raise TypeError
 
-        if s.lower() in ['normal', 'norm']:
-            self._mode = 'normal'
-        elif s.lower() in ['fill', 'filled']:
-            self._mode = 'fill'
+        if s.lower() in ["normal", "norm"]:
+            self._mode = "normal"
+        elif s.lower() in ["fill", "filled"]:
+            self._mode = "fill"
             # TODO: Implement this functionality, here or somewhere else?
-            raise NotImplemented
-        elif s.lower() in ['calculate', 'calc', 'calculated']:
-            self._mode = 'calculate'
+            raise NotImplementedError
+        elif s.lower() in ["calculate", "calc", "calculated"]:
+            self._mode = "calculate"
             # TODO: Implement this functionality, here or somewhere else?
-            raise NotImplemented
+            raise NotImplementedError
         else:
             raise ValueError
 

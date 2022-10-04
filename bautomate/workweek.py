@@ -1,28 +1,31 @@
 from typing import List
+
 from bautomate.workday import WorkDay
 
-class WorkWeek():
+
+class WorkWeek:
     """
     Class representing one work week.
 
     Properties:
         days:       List of WorkDays.
     """
+
     def __init__(self, **kwargs):
         self.days = kwargs.get("days", [])
 
     def __str__(self):
         s = ""
         for k in self.__dict__.keys():
-            s += '\n'
-            s += f'{k}: {getattr(self, k)}'
+            s += "\n"
+            s += f"{k}: {getattr(self, k)}"
         return s
 
     def __repr__(self):
         s = ""
         for k in self.__dict__.keys():
-            s += '\n'
-            s += f'{k}: {getattr(self, k)}'
+            s += "\n"
+            s += f"{k}: {getattr(self, k)}"
         return s
 
     @property
